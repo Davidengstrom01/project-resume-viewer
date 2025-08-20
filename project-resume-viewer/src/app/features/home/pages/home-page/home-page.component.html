@@ -1,0 +1,17 @@
+<div class="home-container">
+  <h1>David Engström</h1>
+  <p class="bio">
+    I’m a software developer specializing in C#/.NET and Angular. Passionate about building scalable web apps and exploring new technologies.
+  </p>
+
+  <section class="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li *ngFor="let repo of repos$ | async">
+        <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer">{{ repo.name }}</a>
+      </li>
+    </ul>
+  </section>
+
+  <a class="cv-button" href="assets/resume.pdf" target="_blank" rel="noopener">View CV</a>
+</div>
