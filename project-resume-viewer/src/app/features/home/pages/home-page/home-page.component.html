@@ -4,14 +4,25 @@
     I’m a software developer specializing in C#/.NET and Angular. Passionate about building scalable web apps and exploring new technologies.
   </p>
 
+  <a class="cv-button" href="assets/resume.pdf" target="_blank" rel="noopener">📄 View CV</a>
+
   <section class="projects">
     <h2>My Projects</h2>
-    <ul>
-      <li *ngFor="let repo of repos$ | async">
-        <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer">{{ repo.name }}</a>
-      </li>
-    </ul>
+    <div *ngIf="loading(); else loaded">
+      <p>Loading repositories...</p>
+    </div>
+    <ng-template #loaded>
+      <p *ngIf="error()">{{ error() }}</p>
+      <ul *ngIf="!error()">
+        <li *ngFor="let repo of repos()">
+          <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer">{{ repo.name }}</a>
+          <p class="description">{{ repo.description || 'No description' }}</p>
+          <p class="meta">
+            <span class="language">{{ repo.language || 'Unknown' }}</span>
+            <span class="updated">{{ repo.updated_at | date: 'mediumDate' }}</span>
+          </p>
+        </li>
+      </ul>
+    </ng-template>
   </section>
-
-  <a class="cv-button" href="assets/resume.pdf" target="_blank" rel="noopener">View CV</a>
 </div>

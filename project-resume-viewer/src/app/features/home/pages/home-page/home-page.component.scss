@@ -16,20 +16,41 @@
 .projects ul {
   list-style: none;
   padding: 0;
+  display: grid;
+  gap: 1rem;
 }
 
 .projects li {
-  margin: 0.5rem 0;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  text-align: left;
+  transition: box-shadow 0.3s;
+}
+
+.projects li:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .projects a {
   color: #007acc;
   text-decoration: none;
-  transition: color 0.3s;
+  font-weight: 600;
 }
 
 .projects a:hover {
   text-decoration: underline;
+}
+
+.description {
+  margin: 0.5rem 0;
+}
+
+.meta {
+  font-size: 0.875rem;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cv-button {
