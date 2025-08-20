@@ -1,0 +1,49 @@
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bio {
+  margin-bottom: 2rem;
+}
+
+.projects {
+  margin-top: 2rem;
+}
+
+.projects ul {
+  list-style: none;
+  padding: 0;
+}
+
+.projects li {
+  margin: 0.5rem 0;
+}
+
+.projects a {
+  color: #007acc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.projects a:hover {
+  text-decoration: underline;
+}
+
+.cv-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.cv-button:hover {
+  background-color: #005a99;
+}
