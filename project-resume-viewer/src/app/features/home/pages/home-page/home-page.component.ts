@@ -1,13 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
-
-interface Repo {
-  name: string;
-  html_url: string;
-  private: boolean;
-}
+import { RepoStore } from '../../../../core/stores/repo.store';
 
 @Component({
   selector: 'app-home-page',
@@ -17,15 +10,11 @@ interface Repo {
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-  private readonly http = inject(HttpClient);
+  private readonly repoStore = inject(RepoStore);
 
-  readonly repos$ = this.http
-    .get<Repo[]>(`https://api.github.com/users/your-username/repos`)
-    .pipe(
-      map(repos =>
-        repos
-          .filter(repo => !repo.private)
-          .sort((a, b) => a.name.localeCompare(b.name))
-      )
-    );
+  readonly repos = computed(() =>
+    this.repoStore.repos().filter((repo) => !repo.archived)
+  );
+  readonly loading = this.repoStore.loading;
+  readonly error = this.repoStore.error;
 }
