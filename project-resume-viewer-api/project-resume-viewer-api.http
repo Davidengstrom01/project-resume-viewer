@@ -1,0 +1,6 @@
+@project_resume_viewer_api_HostAddress = http://localhost:5265
+
+GET {{project_resume_viewer_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

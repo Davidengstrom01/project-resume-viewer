@@ -1,70 +1,82 @@
 .home-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .bio {
-  margin-bottom: 2rem;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .projects {
-  margin-top: 2rem;
+  margin-top: 30px;
 }
 
-  .projects ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    gap: 1rem;
-  }
+.repo-list {
+  list-style: none;
+  padding: 0;
+}
 
-  .projects li {
-    padding: 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    text-align: left;
-    transition: box-shadow 0.3s;
-  }
+.repo-card {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  background: #f9f9f9;
+  transition: box-shadow 0.2s ease-in-out;
+}
 
-    .projects li:hover {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
+.repo-card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
 
-  .projects a {
-    color: #007acc;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-    .projects a:hover {
-      text-decoration: underline;
-    }
+.repo-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0077cc;
+}
 
 .description {
-  margin: 0.5rem 0;
+  margin: 5px 0 10px;
+  font-size: 14px;
+  color: #555;
 }
 
-.meta {
-  font-size: 0.875rem;
-  color: #555;
+.repo-meta {
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+.language {
+  font-weight: bold;
 }
 
 .cv-button {
   display: inline-block;
-  margin-top: 2rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #007acc;
+  padding: 10px 15px;
+  background: #0077cc;
   color: #fff;
-  border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
-  .cv-button:hover {
-    background-color: #005a99;
-  }
+.cv-button:hover {
+  background: #005fa3;
+}
+
+.loading,
+.error,
+.empty {
+  padding: 10px;
+  margin-top: 10px;
+  color: #444;
+}
+
+.error {
+  color: #c0392b;
+}

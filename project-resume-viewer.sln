@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "project-resume-viewer", "project-resume-viewer\project-resume-viewer.esproj", "{C568644A-1A53-6A7B-35A2-17B29EB2E40B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project-resume-viewer-api", "project-resume-viewer-api\project-resume-viewer-api.csproj", "{D5C352B6-839A-4D11-A07F-B8FDB16C2947}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{C568644A-1A53-6A7B-35A2-17B29EB2E40B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C568644A-1A53-6A7B-35A2-17B29EB2E40B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C568644A-1A53-6A7B-35A2-17B29EB2E40B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D5C352B6-839A-4D11-A07F-B8FDB16C2947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C352B6-839A-4D11-A07F-B8FDB16C2947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C352B6-839A-4D11-A07F-B8FDB16C2947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C352B6-839A-4D11-A07F-B8FDB16C2947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

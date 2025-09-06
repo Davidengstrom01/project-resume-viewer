@@ -4,10 +4,44 @@
     I’m a software developer specializing in C#/.NET and Angular. Passionate about building scalable web apps and exploring new technologies.
   </p>
 
+  <!-- Projects Section -->
   <section class="projects">
     <h2>My Projects</h2>
+
+    <!-- Loading spinner -->
+    <div *ngIf="loading" class="loading">
+      <p>Loading repositories...</p>
+    </div>
+
+    <!-- Error message -->
+    <div *ngIf="error" class="error">
+      <p>⚠️ Failed to load repositories. Please try again later.</p>
+    </div>
+
+    <!-- GitHub Repos -->
+    <ul *ngIf="!loading && repos.length > 0" class="repo-list">
+      <li *ngFor="let repo of repos" class="repo-card">
+        <a [href]="repo.html_url" target="_blank" rel="noopener">
+          <h3>{{ repo.name }}</h3>
+        </a>
+        <p class="description">
+          {{ repo.description || 'No description available.' }}
+        </p>
+        <div class="repo-meta">
+          <span class="language">{{ repo.language || 'Unknown' }}</span>
+          <span class="stars">⭐ {{ repo.stargazers_count }}</span>
+          <span class="updated">🕒 {{ repo.updated_at | date:'mediumDate' }}</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- No projects found -->
+    <p *ngIf="!loading && repos.length === 0" class="empty">
+      No repositories found.
+    </p>
   </section>
 
+  <!-- Documents Section -->
   <section class="documents">
     <h2>My Documents</h2>
     <a class="cv-button" href="assets/resume.pdf" target="_blank" rel="noopener">
