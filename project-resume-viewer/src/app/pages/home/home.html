@@ -1,51 +1,69 @@
 <div class="home-container">
-  <h1>David Engström</h1>
+  <h1>
+    <a href="https://www.linkedin.com/in/david-engstr%C3%B6m-495a271b8">David Engström</a>
+  </h1>
   <p class="bio">
-    I’m a software developer specializing in C#/.NET and Angular. Passionate about building scalable web apps and exploring new technologies.
+    I’m a software developer specializing in C#/.NET and Angular. Passionate about building web apps and exploring new technologies.
+    This site showcases my projects and provides access to my CV.
   </p>
 
   <!-- Projects Section -->
-  <section class="projects">
-    <h2>My Projects</h2>
+  <section id="projects" class="projects">
+    <h2>
+      <a href="https://github.com/Davidengstrom01/project-resume-viewer">My Public GitHub Projects</a>
+    </h2>
 
     <!-- Loading spinner -->
-    <div *ngIf="loading" class="loading">
-      <p>Loading repositories...</p>
-    </div>
+     @if (loading) {
+       <div class="loading">
+         <p>Loading repositories...</p>
+        </div>
+      }
 
     <!-- Error message -->
-    <div *ngIf="error" class="error">
+    @if (error) {
+    <div class="error">
       <p>⚠️ Failed to load repositories. Please try again later.</p>
     </div>
+  }
 
     <!-- GitHub Repos -->
-    <ul *ngIf="!loading && repos.length > 0" class="repo-list">
-      <li *ngFor="let repo of repos" class="repo-card">
-        <a [href]="repo.html_url" target="_blank" rel="noopener">
-          <h3>{{ repo.name }}</h3>
-        </a>
-        <p class="description">
-          {{ repo.description || 'No description available.' }}
-        </p>
-        <div class="repo-meta">
-          <span class="language">{{ repo.language || 'Unknown' }}</span>
-          <span class="stars">⭐ {{ repo.stargazers_count }}</span>
-          <span class="updated">🕒 {{ repo.updated_at | date:'mediumDate' }}</span>
-        </div>
-      </li>
+    @if (repos && repos.length > 0) {
+    <ul class="repo-list">
+      @for (repo of repos; track $index) {
+        <li class="repo-card">
+          <a [href]="repo.html_url" target="_blank" rel="noopener">
+            <h3>{{ repo.name }}</h3>
+          </a>
+          <p class="description">
+            {{ repo.description || 'No description available.' }}
+          </p>
+          <div class="repo-meta">
+            <span class="language">{{ repo.language || 'Unknown' }}</span>
+            <span class="stars">⭐ {{ repo.stargazers_count }}</span>
+            <span class="updated">🕒 {{ repo.updated_at | date:'mediumDate' }}</span>
+          </div>
+        </li>
+      }      
     </ul>
-
+  } @else {
     <!-- No projects found -->
-    <p *ngIf="!loading && repos.length === 0" class="empty">
+    <p class="empty">
       No repositories found.
     </p>
+  }  
   </section>
 
   <!-- Documents Section -->
-  <section class="documents">
-    <h2>My Documents</h2>
+  <h2>
+    My Documents
+  </h2>
+  <section id="documents" class="documents">
     <a class="cv-button" href="assets/resume.pdf" target="_blank" rel="noopener">
       📄 View CV
+    </a>
+    <a class="cv-button" href="https://hb.diva-portal.org/smash/record.jsf?pid=diva2%3A1826010&dswid=5267" target="_blank" rel="noopener">
+      📄 Thesis
     </a>
   </section>
 </div>

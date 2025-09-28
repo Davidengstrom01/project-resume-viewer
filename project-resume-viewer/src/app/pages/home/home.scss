@@ -5,6 +5,11 @@
   font-family: Arial, sans-serif;
 }
 
+/* Center everything inside the main container */
+.home-container, .home-container h1, .home-container h2 {
+  text-align: center;
+}
+
 .bio {
   font-size: 16px;
   margin-bottom: 20px;
@@ -17,15 +22,49 @@
 .repo-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+}
+
+/* Center the row of repo cards horizontally */
+.repo-list {
+  justify-content: center;
 }
 
 .repo-card {
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 20px;
+  margin-bottom: 0;
   border-radius: 8px;
   border: 1px solid #e2e2e2;
   background: #f9f9f9;
   transition: box-shadow 0.2s ease-in-out;
+  box-sizing: border-box;
+  /* default: single column */
+  flex: 1 1 calc(100% - 20px);
+  max-width: calc(100% - 20px);
+}
+
+/* Center text inside each repo card */
+.repo-card, .repo-card h3, .repo-card .description, .repo-card .repo-meta {
+  text-align: center;
+}
+
+/* Medium screens: 2 columns */
+@media (min-width: 600px) {
+  .repo-card {
+    flex: 1 1 calc(55% - 20px);
+    max-width: calc(55% - 20px);
+  }
+}
+
+/* Large screens: 3 columns */
+@media (min-width: 1000px) {
+  .repo-card {
+    flex: 1 1 calc(40% - 20px);
+    max-width: calc(40% - 20px);
+  }
 }
 
 .repo-card:hover {
@@ -34,21 +73,27 @@
 
 .repo-card h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #0077cc;
 }
 
 .description {
   margin: 5px 0 10px;
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
 }
 
 .repo-meta {
   display: flex;
-  gap: 15px;
-  font-size: 13px;
+  gap: 18px;
+  font-size: 14px;
   color: #666;
+}
+
+/* Center repo-meta items as a row and align items centrally */
+.repo-meta {
+  justify-content: center;
+  align-items: center;
 }
 
 .language {
@@ -77,6 +122,35 @@
   color: #444;
 }
 
+/* Center status & messages */
+.loading,
+.error,
+.empty {
+  text-align: center;
+}
+
 .error {
   color: #c0392b;
+}
+
+.documents {
+  margin: 20px 10px;
+  text-align: center;
+}
+
+/* Documents: keep buttons simple and blue (not dynamic columns) */
+.documents .cv-button {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #0077cc;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 8px;
+  transition: background 0.15s ease-in-out, transform 0.12s ease-in-out;
+}
+
+.documents .cv-button:hover {
+  background: #005fa3;
+  transform: translateY(-2px);
 }
