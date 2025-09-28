@@ -15,13 +15,6 @@ export class GithubService {
   constructor(private http: HttpClient) { }
 
   getRepos(): Observable<GitHubRepo[]> {
-
-    const value = this.http.get<GitHubRepo[]>(`${this.apiUrl}/example`);
-
-    console.log(value);
-
-    return value;
-
-    //return this.http.get<GitHubRepo[]>(`${this.apiUrl}/${this.username}/repos`);
+    return this.http.get<GitHubRepo[]>(`${this.apiUrl}/${this.username}/repos`);
   }
 }

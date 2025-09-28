@@ -57,3 +57,15 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Local dev proxy and production routing
+
+To keep the backend hostname hidden in production, the app uses a same-origin API path (`/api/Github`). The production build expects the API to be reachable at `/api/Github` on the same origin. In Azure Static Web Apps you can arrange for your API to be served from that path (or use a front-door/proxy in front of your API). If you keep the backend as a separate App Service, ensure CORS allows the static site origin.
+
+For local development you can proxy `/api` to the local backend using `proxy.conf.json`:
+
+```powershell
+ng serve --proxy-config proxy.conf.json
+```
+
+The provided `proxy.conf.json` routes `/api` to `http://localhost:5265` where the API runs when launched via `dotnet run` from the API project.

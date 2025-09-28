@@ -11,8 +11,7 @@ builder.Services.AddCors(o =>
     o.AddPolicy(FrontendCors, p =>
         p.WithOrigins(
             "http://localhost:65043",
-            "http://127.0.0.1:65043",
-            
+            "http://127.0.0.1:65043", 
             "https://gray-river-079a4881e.1.azurestaticapps.net"
         )
         .AllowAnyHeader()
@@ -24,9 +23,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseCors(FrontendCors);
-
-// Kör bara Authorization om du faktiskt har auth konfigurerad
-// app.UseAuthorization();
 
 app.MapControllers();
 
