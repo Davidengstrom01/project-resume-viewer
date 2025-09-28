@@ -11,7 +11,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(FrontendCors, policy =>
     {
-        policy.WithOrigins("https://gray-river-079a4881e.1.azurestaticapps.net")
+        policy.WithOrigins("https://gray-river-079a4881e.1.azurestaticapps.net",
+        "http://127.0.0.1:65043")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
