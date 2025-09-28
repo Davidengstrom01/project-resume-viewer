@@ -13,20 +13,6 @@
       <a href="https://github.com/Davidengstrom01/project-resume-viewer">My Public GitHub Projects</a>
     </h2>
 
-    <!-- Loading spinner -->
-     @if (loading) {
-       <div class="loading">
-         <p>Loading repositories...</p>
-        </div>
-      }
-
-    <!-- Error message -->
-    @if (error) {
-    <div class="error">
-      <p>⚠️ Failed to load repositories. Please try again later.</p>
-    </div>
-  }
-
     <!-- GitHub Repos -->
     @if (repos && repos.length > 0) {
     <ul class="repo-list">
@@ -46,7 +32,18 @@
         </li>
       }      
     </ul>
-  } @else {
+  } <!-- Loading spinner -->  
+  @else if (loading) {
+      <div class="loading">
+        <p>Loading repositories...</p>
+        </div>
+    }<!-- Error message -->
+   @else if (error) {
+   <div class="error">
+     <p>⚠️ Failed to load repositories. Please try again later.</p>
+   </div>
+    }
+    @else if (!loading && !error) {
     <!-- No projects found -->
     <p class="empty">
       No repositories found.
