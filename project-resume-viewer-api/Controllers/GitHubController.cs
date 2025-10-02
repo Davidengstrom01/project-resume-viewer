@@ -26,15 +26,13 @@ public class GithubController : ControllerBase
     [HttpGet("{username}/repos")]
     public async Task<IActionResult> GetRepos(string username)
     {
-        // Create a new HttpClient per request to avoid leaking headers between requests
         var client = _httpFactory.CreateClient();
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github+json"));
         client.DefaultRequestHeaders.Add("X-GitHub-Api-Version", "2022-11-28");
-        // GitHub requires a User-Agent header
+        
         client.DefaultRequestHeaders.UserAgent.ParseAdd("project-resume-viewer-app");
 
-        // Optionally read a GitHub token from configuration (do NOT hardcode in source)
         var token = _configuration["GitHub:Token"];
         if (!string.IsNullOrWhiteSpace(token))
         {
@@ -49,7 +47,7 @@ public class GithubController : ControllerBase
 
         var content = await response.Content.ReadAsStringAsync();
         var repos = JsonSerializer.Deserialize<List<GitHubRepoResponse>>(content, _jsonOptions);
-        return Ok(repos);
+        return Ok(repos?.OrderByDescending(x => x.UpdatedAt));
     }
 
 }
