@@ -1,4 +1,23 @@
+/* === Light Palette ===
+#fff8f5  #f5ebe3  #d2c5bd  #a7bcb5  #333c4a  #e5eee8
+*/
+:root{
+  --bg: #f9fafc;              /* very light neutral background */
+  --bg-elev: #ffffff;         /* pure white elevation */
+  --panel: #f0f2f5;           /* subtle soft gray panel */
+  --text: #1e252d;            /* deep navy text */
+  --text-muted: #6c7a8a;      /* muted steel blue-gray */
+  --accent: #8aa4d1;          /* soft blue accent */
+  --accent-hover: #6e8dc0;    /* darker blue on hover */
+  --border: #dfe7f0;          /* light blue-gray border */
+  --danger: #dc2626;          /* same red for danger */
+  --btn-bg: #2f3e55;          /* navy button background */
+  --btn-hover-text: #1a2333;  /* darker navy on hover */
+
+  --t:200ms ease;
+}
+
+
 body {
-    background-color: #121212;
     font-family: "Inter", "Roboto", sans-serif;
 }

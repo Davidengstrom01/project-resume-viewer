@@ -2,15 +2,22 @@
   <h1>
     <a href="https://www.linkedin.com/in/david-engstr%C3%B6m-495a271b8">David Engström</a>
   </h1>
+
+  <div class="image-container">
+    <img src="assets/profile.jpg" alt="Profile Picture" class="profile-image">
+  </div>
+
   <p class="bio">
-    I’m a software developer specializing in C#/.NET and Angular. Passionate about building web apps and exploring new technologies.
+    I’m a software developer specializing in C#/.NET and Angular. 
+
+    Here is one of my projects to tell you abit about me and what I do. 
     This site showcases my projects and provides access to my CV.
   </p>
 
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <h2>
-      <a href="https://github.com/Davidengstrom01/project-resume-viewer">My Public GitHub Projects</a>
+      <a href="https://github.com/Davidengstrom01/project-resume-viewer">My Projects</a>
     </h2>
 
     <!-- GitHub Repos -->
@@ -35,18 +42,19 @@
   } <!-- Loading spinner -->  
   @else if (loading) {
       <div class="loading">
-        <p>Loading repositories...</p>
-        </div>
+        <p>Loading repositories...I know it can be slow sometimes. </p>
+        <p>Maybe I should cache this. </p>
+      </div>
     }<!-- Error message -->
    @else if (error) {
    <div class="error">
-     <p>⚠️ Failed to load repositories. Please try again later.</p>
+     <p>⚠️ Failed to load repositories. Please give me a call me, someone is getting...</p>
    </div>
     }
     @else if (!loading && !error) {
     <!-- No projects found -->
     <p class="empty">
-      No repositories found.
+      No repositories found. I must have been lazy this week.
     </p>
   }  
   </section>
