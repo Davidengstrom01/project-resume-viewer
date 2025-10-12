@@ -13,7 +13,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("https://gray-river-079a4881e.1.azurestaticapps.net",
         "http://127.0.0.1:65043",
-        "https://www.engstromdavid.se")
+        "https://www.engstromdavid.se",
+        "https://engstromdavid.se")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
